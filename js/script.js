@@ -14,7 +14,6 @@ project 1 - A Random Quote Generator
 // I'll live some comments along the way to explain certain desicions that I've made. Hope it'll not be overvhelming.
 
 
-
 /*** 
  * `quotes` array 
 ***/
@@ -93,7 +92,6 @@ const quotes = [
 // I'm accessing the body to dynamically chenge its background later on
   const body = document.querySelector('body');
 
-
 /***
  * `getRandomQuote` function
 ***/
@@ -106,7 +104,6 @@ const getRandomQuote = max => {
   // Because I wanted to use same function in the background color randomizer 
   return number;
 };
-
 
 // I vanted to make background color random but limited to the darker shades of different colors 
 //This function generates random color not brighter than 140 to keep letters in contrast
@@ -157,12 +154,14 @@ const printQuote = () => {
         }
 }
 
-
-
-
+//I'm seting a 10sec timer for automatic triggering the printQuote function
+const interval = () => {
+  setInterval(printQuote, 10000);
+}
+ 
 // I decide to change the default thml of the page to one of the new quotes. So new quote fires up when page is loaded
 printQuote();
-
+interval();
 
 /***
  * click event listener for the print quote button
